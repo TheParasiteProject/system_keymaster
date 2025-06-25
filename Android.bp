@@ -46,6 +46,15 @@ license {
     ],
 }
 
+// cc_defaults that includes the KeyMint AIDL library that is supported by this
+// C++ reference implementation.
+cc_defaults {
+    name: "keymint_cpp_impl_hal_aidl_ndk_shared",
+    shared_libs: [
+        "android.hardware.security.keymint-V4-ndk",
+    ],
+}
+
 cc_defaults {
     name: "keymaster_defaults",
     vendor_available: true,
@@ -383,7 +392,7 @@ cc_library {
     ],
     defaults: [
         "keymaster_defaults",
-        "keymint_use_latest_hal_aidl_ndk_shared",
+        "keymint_cpp_impl_hal_aidl_ndk_shared",
     ],
     shared_libs: [
         "libbase",
@@ -455,7 +464,7 @@ cc_library {
     ],
     defaults: [
         "keymaster_defaults",
-        "keymint_use_latest_hal_aidl_ndk_shared",
+        "keymint_cpp_impl_hal_aidl_ndk_shared",
     ],
     shared_libs: [
         "libhidlbase",
